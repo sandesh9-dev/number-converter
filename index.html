@@ -19,19 +19,22 @@
       color: white;
     }
 
-    .converter {
-      background: #111827;
-      padding: 25px;
-      border-radius: 12px;
-      width: 360px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    }
-    @media(max-width:460px){
-      .converter{
-        width: 90%;
-      height: 60%;
-      }
-    }
+   .converter {
+  background: #111827;
+  padding: 25px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+@media (max-width: 460px) {
+  .converter {
+    max-width: 90%;
+    padding: 20px;
+  }
+}
+
 
     h2 {
       text-align: center;
