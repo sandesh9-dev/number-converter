@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
+  <!-- 🔴 REQUIRED FOR MOBILE -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Number System Converter</title>
 
   <style>
@@ -10,49 +14,39 @@
       font-family: Arial, sans-serif;
     }
 
-  .converter {
-  background: #111827;
-  padding: 25px;
-  border-radius: 12px;
-  width: 100%;
-  max-width: 360px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1e1e2f, #2c2c54);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      padding: 20px;
+    }
 
-/* Mobile */
-@media (max-width: 460px) {
-  body {
-    align-items: flex-start;
-  }
+    .converter {
+      background: #111827;
+      width: 100%;
+      max-width: 360px;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
 
-  .converter {
-    width: 90%;
-    max-width: none;
-    min-height: 85vh;
-    padding: 22px;
-  }
-}
+    /* 📱 MOBILE */
+    @media (max-width: 460px) {
+      body {
+        align-items: flex-start;
+      }
 
-
-   .converter {
-  background: #111827;
-  padding: 25px;
-  border-radius: 12px;
-  width: 100%;
-  max-width: 360px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-
-/* Mobile */
-@media (max-width: 460px) {
-  .converter {
-    width: 90%;
-    max-width: none;
-    padding: 20px;
-  }
-}
-
-
+      .converter {
+        width: 90%;
+        max-width: none;
+        min-height: 85vh;
+        padding: 22px;
+      }
+    }
 
     h2 {
       text-align: center;
@@ -155,21 +149,13 @@
         return;
       }
 
-      try {
-        // Convert input → decimal
-        const decimalValue = parseInt(input, fromBase);
-
-        if (isNaN(decimalValue)) {
-          throw new Error("Invalid number for selected base.");
-        }
-
-        // Convert decimal → target base
-        const converted = decimalValue.toString(toBase).toUpperCase();
-
-        resultDiv.textContent = converted;
-      } catch (e) {
+      const decimalValue = parseInt(input, fromBase);
+      if (isNaN(decimalValue)) {
         errorDiv.textContent = "Invalid input for the selected number system.";
+        return;
       }
+
+      resultDiv.textContent = decimalValue.toString(toBase).toUpperCase();
     }
   </script>
 
